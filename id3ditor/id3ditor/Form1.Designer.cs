@@ -34,6 +34,8 @@
             this.selectDirBtn = new System.Windows.Forms.Button();
             this.mp3CountLbl = new System.Windows.Forms.Label();
             this.id3panel = new System.Windows.Forms.Panel();
+            this.exportToFolderBtn = new System.Windows.Forms.Button();
+            this.saveId3Btn = new System.Windows.Forms.Button();
             this.selectAlbumArtBtn = new System.Windows.Forms.Button();
             this.albumArt = new System.Windows.Forms.PictureBox();
             this.trackNoUpDown = new System.Windows.Forms.NumericUpDown();
@@ -62,7 +64,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveId3Btn = new System.Windows.Forms.Button();
+            this.folderProgressBar = new System.Windows.Forms.ProgressBar();
+            this.copyBtn = new System.Windows.Forms.Button();
+            this.pasteBtn = new System.Windows.Forms.Button();
             this.id3panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.albumArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackNoUpDown)).BeginInit();
@@ -123,6 +127,9 @@
             // id3panel
             // 
             this.id3panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.id3panel.Controls.Add(this.pasteBtn);
+            this.id3panel.Controls.Add(this.copyBtn);
+            this.id3panel.Controls.Add(this.exportToFolderBtn);
             this.id3panel.Controls.Add(this.saveId3Btn);
             this.id3panel.Controls.Add(this.selectAlbumArtBtn);
             this.id3panel.Controls.Add(this.albumArt);
@@ -145,6 +152,32 @@
             this.id3panel.Name = "id3panel";
             this.id3panel.Size = new System.Drawing.Size(513, 432);
             this.id3panel.TabIndex = 5;
+            // 
+            // exportToFolderBtn
+            // 
+            this.exportToFolderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+            this.exportToFolderBtn.Enabled = false;
+            this.exportToFolderBtn.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.exportToFolderBtn.Location = new System.Drawing.Point(275, 392);
+            this.exportToFolderBtn.Name = "exportToFolderBtn";
+            this.exportToFolderBtn.Size = new System.Drawing.Size(213, 37);
+            this.exportToFolderBtn.TabIndex = 18;
+            this.exportToFolderBtn.Text = "Export music to folders";
+            this.exportToFolderBtn.UseVisualStyleBackColor = false;
+            this.exportToFolderBtn.Click += new System.EventHandler(this.exportToFolderBtn_Click);
+            // 
+            // saveId3Btn
+            // 
+            this.saveId3Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+            this.saveId3Btn.Enabled = false;
+            this.saveId3Btn.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.saveId3Btn.Location = new System.Drawing.Point(275, 346);
+            this.saveId3Btn.Name = "saveId3Btn";
+            this.saveId3Btn.Size = new System.Drawing.Size(213, 40);
+            this.saveId3Btn.TabIndex = 17;
+            this.saveId3Btn.Text = "Save and overwrite tags";
+            this.saveId3Btn.UseVisualStyleBackColor = false;
+            this.saveId3Btn.Click += new System.EventHandler(this.saveId3Btn_Click);
             // 
             // selectAlbumArtBtn
             // 
@@ -173,7 +206,7 @@
             // 
             this.trackNoUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.trackNoUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.trackNoUpDown.Location = new System.Drawing.Point(275, 309);
+            this.trackNoUpDown.Location = new System.Drawing.Point(275, 244);
             this.trackNoUpDown.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -188,7 +221,7 @@
             this.trackNoLbl.AutoSize = true;
             this.trackNoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackNoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.trackNoLbl.Location = new System.Drawing.Point(271, 286);
+            this.trackNoLbl.Location = new System.Drawing.Point(271, 221);
             this.trackNoLbl.Name = "trackNoLbl";
             this.trackNoLbl.Size = new System.Drawing.Size(61, 20);
             this.trackNoLbl.TabIndex = 13;
@@ -198,7 +231,7 @@
             // 
             this.yearUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.yearUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.yearUpDown.Location = new System.Drawing.Point(275, 247);
+            this.yearUpDown.Location = new System.Drawing.Point(275, 197);
             this.yearUpDown.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -213,7 +246,7 @@
             this.yearLbl.AutoSize = true;
             this.yearLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.yearLbl.Location = new System.Drawing.Point(271, 224);
+            this.yearLbl.Location = new System.Drawing.Point(271, 174);
             this.yearLbl.Name = "yearLbl";
             this.yearLbl.Size = new System.Drawing.Size(43, 20);
             this.yearLbl.TabIndex = 11;
@@ -223,7 +256,7 @@
             // 
             this.genreTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.genreTxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.genreTxtBox.Location = new System.Drawing.Point(275, 183);
+            this.genreTxtBox.Location = new System.Drawing.Point(275, 150);
             this.genreTxtBox.Name = "genreTxtBox";
             this.genreTxtBox.Size = new System.Drawing.Size(213, 21);
             this.genreTxtBox.TabIndex = 10;
@@ -233,7 +266,7 @@
             this.genreLbl.AutoSize = true;
             this.genreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.genreLbl.Location = new System.Drawing.Point(271, 160);
+            this.genreLbl.Location = new System.Drawing.Point(271, 127);
             this.genreLbl.Name = "genreLbl";
             this.genreLbl.Size = new System.Drawing.Size(54, 20);
             this.genreLbl.TabIndex = 9;
@@ -243,7 +276,7 @@
             // 
             this.albumArtistTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.albumArtistTxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.albumArtistTxtBox.Location = new System.Drawing.Point(275, 120);
+            this.albumArtistTxtBox.Location = new System.Drawing.Point(275, 103);
             this.albumArtistTxtBox.Name = "albumArtistTxtBox";
             this.albumArtistTxtBox.Size = new System.Drawing.Size(213, 21);
             this.albumArtistTxtBox.TabIndex = 8;
@@ -253,7 +286,7 @@
             this.albumArtistLbl.AutoSize = true;
             this.albumArtistLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.albumArtistLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.albumArtistLbl.Location = new System.Drawing.Point(271, 97);
+            this.albumArtistLbl.Location = new System.Drawing.Point(271, 80);
             this.albumArtistLbl.Name = "albumArtistLbl";
             this.albumArtistLbl.Size = new System.Drawing.Size(95, 20);
             this.albumArtistLbl.TabIndex = 7;
@@ -283,7 +316,7 @@
             // 
             this.albumTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.albumTxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.albumTxtBox.Location = new System.Drawing.Point(16, 120);
+            this.albumTxtBox.Location = new System.Drawing.Point(16, 103);
             this.albumTxtBox.Name = "albumTxtBox";
             this.albumTxtBox.Size = new System.Drawing.Size(235, 21);
             this.albumTxtBox.TabIndex = 4;
@@ -293,7 +326,7 @@
             this.albumLbl.AutoSize = true;
             this.albumLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.albumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.albumLbl.Location = new System.Drawing.Point(12, 97);
+            this.albumLbl.Location = new System.Drawing.Point(12, 80);
             this.albumLbl.Name = "albumLbl";
             this.albumLbl.Size = new System.Drawing.Size(54, 20);
             this.albumLbl.TabIndex = 3;
@@ -438,6 +471,7 @@
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
             this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.howToUseToolStripMenuItem.Text = "How to use";
+            this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
             // 
             // aboutProgramToolStripMenuItem
             // 
@@ -446,18 +480,39 @@
             this.aboutProgramToolStripMenuItem.Text = "About Program";
             this.aboutProgramToolStripMenuItem.Click += new System.EventHandler(this.aboutProgramToolStripMenuItem_Click);
             // 
-            // saveId3Btn
+            // folderProgressBar
             // 
-            this.saveId3Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-            this.saveId3Btn.Enabled = false;
-            this.saveId3Btn.ForeColor = System.Drawing.Color.BlanchedAlmond;
-            this.saveId3Btn.Location = new System.Drawing.Point(275, 345);
-            this.saveId3Btn.Name = "saveId3Btn";
-            this.saveId3Btn.Size = new System.Drawing.Size(213, 38);
-            this.saveId3Btn.TabIndex = 17;
-            this.saveId3Btn.Text = "Save and overwrite tags";
-            this.saveId3Btn.UseVisualStyleBackColor = false;
-            this.saveId3Btn.Click += new System.EventHandler(this.saveId3Btn_Click);
+            this.folderProgressBar.Location = new System.Drawing.Point(137, 534);
+            this.folderProgressBar.Name = "folderProgressBar";
+            this.folderProgressBar.Size = new System.Drawing.Size(831, 15);
+            this.folderProgressBar.Step = 1;
+            this.folderProgressBar.TabIndex = 8;
+            // 
+            // copyBtn
+            // 
+            this.copyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+            this.copyBtn.Enabled = false;
+            this.copyBtn.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.copyBtn.Location = new System.Drawing.Point(275, 271);
+            this.copyBtn.Name = "copyBtn";
+            this.copyBtn.Size = new System.Drawing.Size(213, 34);
+            this.copyBtn.TabIndex = 19;
+            this.copyBtn.Text = "Copy album infomation";
+            this.copyBtn.UseVisualStyleBackColor = false;
+            this.copyBtn.Click += new System.EventHandler(this.copyBtn_Click);
+            // 
+            // pasteBtn
+            // 
+            this.pasteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+            this.pasteBtn.Enabled = false;
+            this.pasteBtn.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.pasteBtn.Location = new System.Drawing.Point(275, 311);
+            this.pasteBtn.Name = "pasteBtn";
+            this.pasteBtn.Size = new System.Drawing.Size(213, 29);
+            this.pasteBtn.TabIndex = 20;
+            this.pasteBtn.Text = "Paste album infomation";
+            this.pasteBtn.UseVisualStyleBackColor = false;
+            this.pasteBtn.Click += new System.EventHandler(this.pasteBtn_Click);
             // 
             // Form1
             // 
@@ -465,6 +520,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.folderProgressBar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.id3panel);
             this.Controls.Add(this.mp3CountLbl);
@@ -529,6 +585,10 @@
         private System.Windows.Forms.PictureBox albumArt;
         private System.Windows.Forms.Button selectAlbumArtBtn;
         private System.Windows.Forms.Button saveId3Btn;
+        private System.Windows.Forms.Button exportToFolderBtn;
+        private System.Windows.Forms.ProgressBar folderProgressBar;
+        private System.Windows.Forms.Button pasteBtn;
+        private System.Windows.Forms.Button copyBtn;
     }
 }
 

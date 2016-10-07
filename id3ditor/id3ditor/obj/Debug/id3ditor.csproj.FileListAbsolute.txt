@@ -12,3 +12,17 @@ D:\My Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\id3ditor\obj\Debug
 D:\My Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\id3ditor\bin\Debug\policy.2.0.taglib-sharp.dll
 D:\My Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\id3ditor\bin\Debug\taglib-sharp.dll
 D:\My Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\id3ditor\bin\Debug\policy.2.0.taglib-sharp.config
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\id3ditor.exe.config
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\Interop.WMPLib.dll
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.csproj.ResolveComReference.cache
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.exe
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.pdb
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\id3ditor.exe
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\id3ditor.pdb
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\policy.2.0.taglib-sharp.dll
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\taglib-sharp.dll
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\bin\Debug\policy.2.0.taglib-sharp.config
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.Form1.resources
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.Properties.Resources.resources
+D:\Documents\Visual Studio 2015\Projects\id3ditor\id3ditor\obj\Debug\id3ditor.csproj.GenerateResource.Cache
